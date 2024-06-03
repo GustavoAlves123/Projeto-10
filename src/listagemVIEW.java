@@ -142,8 +142,9 @@ public class listagemVIEW extends javax.swing.JFrame {
         ProdutosDAO produtosdao = new ProdutosDAO();
         
         //produtosdao.venderProduto(Integer.parseInt(id));
+        
+        JOptionPane.showMessageDialog(null,"Vendido");
         listarProdutos();
-        JOptionPane.showMessageDialog(null,"Vendido-");
     }//GEN-LAST:event_btnVenderActionPerformed
 
     private void btnVendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVendasActionPerformed
@@ -204,15 +205,8 @@ public class listagemVIEW extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void listarProdutos(){
-       
-        
-        
-        
         try {
             ProdutosDAO produtosdao = new ProdutosDAO();
-             
-            
-             
             
             DefaultTableModel model = (DefaultTableModel) listaProdutos.getModel();
             model.setNumRows(0);
@@ -220,19 +214,6 @@ public class listagemVIEW extends javax.swing.JFrame {
             ArrayList<ProdutosDTO> listagem = produtosdao.listarProdutos();
             
             for(int i = 0; i < listagem.size(); i++){
-                ProdutosDTO pd = listagem.get(i);
-                
-                
-                
-                String [] linha ={
-                Integer.toString(pd.getId()),
-                pd.getNome(),
-                Double.toString(pd.getValor()),
-                pd.getStatus()};
-            
-            
-                
-                
                 model.addRow(new Object[]{
                     listagem.get(i).getId(),
                     listagem.get(i).getNome(),
